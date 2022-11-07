@@ -1,11 +1,26 @@
-//вариант 15 Миньков Средний уровень 
-Console.WriteLine("Введите число N:");
-double N = double.Parse(Console.ReadLine());
-Console.WriteLine("Введите число X:");
-double x = double.Parse(Console.ReadLine());
-double sum = 0;
-for (int i = 0; i < N; i++)
+// Миньков исп 22-2-1 средний уровень вариант 15
+var k = int.Parse(Console.ReadLine());
+
+
+double y = 0;
+for (var n = 1; n <= k; n++)
 {
-    sum += Math.Pow(-1, i) * (Math.Pow(x, 2 * i + 1) / (2 * i + 1));
+
+
+    var factorial = 1;
+
+    for (var x = 1; x <= 3 * n; x++) factorial *= x;
+
+
+    var numerator = Math.Pow(-1, 2 * n) * Math.Pow(Math.Pow(n, 2) - 9, 2);
+
+
+    var result = numerator / factorial;
+
+
+    if (result == 0 || double.IsInfinity(result)) continue;
+
+
+    y += result;
 }
-Console.WriteLine("Ответ:"+sum) ;
+Console.WriteLine(y.ToString("F4"));
